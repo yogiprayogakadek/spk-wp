@@ -28,10 +28,11 @@
                                 </div>
                             </div>
                             <div class="dropdown d-flex profile-1"> 
-                                {{-- <a href="javascript:void(0)"
-                                    data-bs-toggle="dropdown" class="nav-link leading-none d-flex"> <img
-                                        src="{{fotoAkun()}}" alt="profile-user"
-                                        class="avatar  profile-user brround cover-image"> </a> --}}
+                                <a href="javascript:void(0)"
+                                    data-bs-toggle="dropdown" class="nav-link leading-none d-flex"> 
+                                    {{-- <img src="{{fotoAkun()}}" alt="profile-user"
+                                        class="avatar  profile-user brround cover-image">  --}}
+                                    </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                                     <div class="drop-heading">
                                         <div class="text-center">
