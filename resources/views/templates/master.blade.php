@@ -1,9 +1,12 @@
 <html lang="en" dir="ltr"
     style="--primary01:rgba(108, 95, 252, 0.1); --primary02:rgba(108, 95, 252, 0.2); --primary03:rgba(108, 95, 252, 0.3); --primary06:rgba(108, 95, 252, 0.6); --primary09:rgba(108, 95, 252, 0.9); --primary005:rgba(108, 95, 252, 0.05);">
-
 @include('templates.partials.head')
-
 <body class="app sidebar-mini ltr">
+    <div id="overlay">
+        <div class="cv-spinner">
+          <span class="spinner"></span>
+        </div>
+      </div>
     <div class="horizontalMenucontainer">
         <!-- GLOBAL-LOADER -->
         <div id="global-loader" style="display: none;"> <img src="https://spruko.com/demo/sash/sash/assets/images/loader.svg" class="loader-img"

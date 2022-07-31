@@ -29,6 +29,8 @@ Route::prefix('/')->namespace('Main')->middleware('auth')->group(function(){
     });
     
     Route::prefix('/nilai')->name('nilai.')->group(function(){
+        Route::get('/', 'NilaiController@index')->name('index');
+        Route::get('/render', 'NilaiController@render')->name('render');
         Route::post('/store', 'NilaiController@store')->name('store');
         Route::get('/edit/{id}', 'NilaiController@edit')->name('edit');
     });

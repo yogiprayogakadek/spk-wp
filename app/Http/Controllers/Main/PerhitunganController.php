@@ -17,10 +17,13 @@ class PerhitunganController extends Controller
         $nilai = Nilai::all();
         $alternatif = Alternatif::all();
 
+        // temporary data
         $nilaiW = [];
         $dataBobot = '';
         $nilaiAlternatif = [];
-        $dataNilai = [];
+        $nilaiS = [];
+        $dataNilaiS = '';
+        $ranking = [];
 
         foreach ($kriteria as $key => $value) {
             // $nilaiW[] = $value->bobot / $bobot;
@@ -37,13 +40,30 @@ class PerhitunganController extends Controller
             $nilaiAlternatif[$value->id_alternatif][] = [
                 'nilai' => $value->nilai,
                 'nilaiW' => $nilaiW[$key % count($nilaiW)]['total'],
-                // 'nilaiW' => $nilaiW[count($nilai)/count($kriteria)]['total'],
+                'total' => pow($value->nilai, $nilaiW[$key % count($nilaiW)]['total']),
             ];
         }
 
-        // dd($nilaiAlternatif);
+        // nilai s ternormalisasi
+        foreach ($nilaiAlternatif as $key => $value) {
+            $nilaiS[$key] = round(array_product(array_column($value, 'total')), 4);
+            $dataNilaiS .= $nilaiS[$key] . ' + ';
+        }
 
-        // return view('main.perhitungan.index', compact('kriteria', 'bobot', 'nilaiW', 'dataBobot'));
+        // ranking
+        foreach ($nilaiS as $key => $value) {
+            $ranking[$key] = [
+                'nilai' => $value/array_sum($nilaiS),
+                'alternatif' => Alternatif::find($key)->nama,
+                'no' => $key - count($nilaiS),
+            ];
+        }
+        
+        // sorting
+        usort($ranking, function ($a, $b) {
+            return $a['nilai'] < $b['nilai'];
+        });
+        
         return view('main.perhitungan.index')->with([
             'kriteria' => $kriteria, //data kriteria
             'bobot' => $bobot, //jumlah bobot kriteria
@@ -51,6 +71,9 @@ class PerhitunganController extends Controller
             'dataBobot' => rtrim($dataBobot, ' + '), //data bobot kriteria
             'nilaiAlternatif' => $nilaiAlternatif, //data nilai alternatif
             'alternatif' => $alternatif, //data alternatif
+            'nilaiS' => $nilaiS, //data nilai s ternormalisasi
+            'dataNilaiS' => rtrim($dataNilaiS, ' + '), //data nilai s ternormalisasi
+            'ranking' => $ranking, //data ranking
         ]);
     }
 }

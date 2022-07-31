@@ -4,12 +4,32 @@ namespace App\Http\Controllers\Main;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\NilaiRequest;
+use App\Models\Alternatif;
 use App\Models\Kriteria;
 use App\Models\Nilai;
 use Illuminate\Http\Request;
 
 class NilaiController extends Controller
 {
+    public function index()
+    {
+        return view('main.nilai.index');
+    }
+
+    public function render()
+    {
+        $kriteria = Kriteria::all();
+        $satuan = [
+            '(m)', '', '(m)', ''
+        ];
+        $data = Alternatif::with('nilai')->get();
+        $view = [
+            'data' => view('main.nilai.render', compact('data', 'kriteria', 'satuan'))->render(),
+        ];
+
+        return response()->json($view);
+    }
+
     public function store(NilaiRequest $request)
     {
         try {
