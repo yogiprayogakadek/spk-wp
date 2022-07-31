@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('jabatan', function (Blueprint $table) {
-            $table->id('id_jabatan');
-            $table->string('nama_jabatan', 50);
+        Schema::create('kriteria', function (Blueprint $table) {
+            $table->id('id_kriteria');
+            $table->char('kode_kriteria', 10);
+            $table->string('nama');
+            $table->integer('bobot');
+            $table->enum('tipe', ['benefit', 'cost']);
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jabatan');
+        Schema::dropIfExists('kriteria');
     }
 };

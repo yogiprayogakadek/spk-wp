@@ -24,6 +24,18 @@
                         href="{{route('dashboard.index')}}"><i class="side-menu__icon fe fe-home"></i><span
                             class="side-menu__label">Dashboard</span>
                     </a>
+                    <a class="side-menu__item has-link {{Request::is('kriteria') ? 'active' : '' }}" data-bs-toggle="slide"
+                        href="{{route('kriteria.index')}}"><i class="side-menu__icon fe fe-users"></i><span
+                            class="side-menu__label">Data Kriteria</span>
+                    </a>
+                    <a class="side-menu__item has-link {{Request::is('alternatif') ? 'active' : '' }}" data-bs-toggle="slide"
+                        href="{{route('alternatif.index')}}"><i class="side-menu__icon fe fe-users"></i><span
+                            class="side-menu__label">Data Alternatif</span>
+                    </a>
+                    <a class="side-menu__item has-link {{Request::is('perhitungan') ? 'active' : '' }}" data-bs-toggle="slide"
+                        href="{{route('perhitungan.index')}}"><i class="side-menu__icon fe fe-users"></i><span
+                            class="side-menu__label">Data Perhitungan</span>
+                    </a>
                     {{-- <a class="side-menu__item has-link {{Request::is('pegawai') ? 'active' : '' }}" data-bs-toggle="slide"
                         href="{{route('pegawai.index')}}"><i class="side-menu__icon fe fe-users"></i><span
                             class="side-menu__label">Data Pegawai</span>
