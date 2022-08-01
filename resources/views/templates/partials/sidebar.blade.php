@@ -2,11 +2,11 @@
     <div class="app-sidebar__overlay" data-bs-toggle="sidebar"></div>
     <div class="app-sidebar ps ps--active-y sidemenu-scroll">
         <div class="side-header"> <a class="header-brand1" href="{{route('main')}}"> <img
-                    src="{{asset('assets/images/logo.jpeg')}}" class="header-brand-img desktop-logo"
-                    alt="logo"> <img src="{{asset('assets/images/logo.jpeg')}}"
+                    src="{{asset('assets/images/logo.png')}}" class="header-brand-img desktop-logo"
+                    alt="logo"> <img src="{{asset('assets/images/logo.png')}}"
                     class="header-brand-img toggle-logo" alt="logo"> <img
-                    src="{{asset('assets/images/logo.jpeg')}}" class="header-brand-img light-logo"
-                    alt="logo"> <img src="{{asset('assets/images/logo.jpeg')}}"
+                    src="{{asset('assets/images/logo.png')}}" class="header-brand-img light-logo"
+                    alt="logo"> <img src="{{asset('assets/images/logo.png')}}"
                     class="header-brand-img light-logo1" style="width: 100px" alt="logo"> </a> <!-- LOGO -->
         </div>
         <div class="main-sidemenu">
@@ -25,19 +25,19 @@
                             class="side-menu__label">Dashboard</span>
                     </a>
                     <a class="side-menu__item has-link {{Request::is('kriteria') ? 'active' : '' }}" data-bs-toggle="slide"
-                        href="{{route('kriteria.index')}}"><i class="side-menu__icon fe fe-users"></i><span
+                        href="{{route('kriteria.index')}}"><i class="side-menu__icon fe fe-package"></i><span
                             class="side-menu__label">Data Kriteria</span>
                     </a>
                     <a class="side-menu__item has-link {{Request::is('alternatif') ? 'active' : '' }}" data-bs-toggle="slide"
-                        href="{{route('alternatif.index')}}"><i class="side-menu__icon fe fe-users"></i><span
+                        href="{{route('alternatif.index')}}"><i class="side-menu__icon fe fe-grid"></i><span
                             class="side-menu__label">Data Alternatif</span>
                     </a>
                     <a class="side-menu__item has-link {{Request::is('nilai') ? 'active' : '' }}" data-bs-toggle="slide"
-                        href="{{route('nilai.index')}}"><i class="side-menu__icon fe fe-users"></i><span
+                        href="{{route('nilai.index')}}"><i class="side-menu__icon fe fe-book"></i><span
                             class="side-menu__label">Data Nilai Alternatif</span>
                     </a>
                     <a class="side-menu__item has-link {{Request::is('perhitungan') ? 'active' : '' }}" data-bs-toggle="slide"
-                        href="{{route('perhitungan.index')}}"><i class="side-menu__icon fe fe-users"></i><span
+                        href="{{route('perhitungan.index')}}"><i class="side-menu__icon fe fe-edit-3"></i><span
                             class="side-menu__label">Data Perhitungan</span>
                     </a>
                 </li>

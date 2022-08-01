@@ -4,13 +4,21 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', 'Main\DashboardController@index')->name('main')->middleware('auth');
+
+Route::prefix('/pendaftaran')->namespace('Main')->name('pendaftaran.')->group(function(){
+    Route::get('/', 'RegisterController@index')->name('index');
+    Route::post('/proses', 'RegisterController@register')->name('proses');
+});
+
 Route::prefix('/')->namespace('Main')->middleware('auth')->group(function(){
-    // Route::get('/', function () {
-    //     return view('welcome');
-    // });
+
     Route::prefix('/dashboard')->name('dashboard.')->group(function(){
         Route::get('/', 'DashboardController@index')->name('index');
-        // Route::post('/chart', 'DashboardController@chart')->name('chart');
+    });
+
+    Route::prefix('/user')->name('user.')->group(function(){
+        Route::get('/', 'UserController@index')->name('index');
+        Route::get('/render', 'UserController@render')->name('render');
     });
 
     Route::prefix('/kriteria')->name('kriteria.')->group(function(){

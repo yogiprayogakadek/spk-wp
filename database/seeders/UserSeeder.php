@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
                 'password' => bcrypt('12345678')
             ],
             [
-                'nama' => 'Putu',
+                'nama' => 'Kadek',
                 'no_hp' => '081234123423',
                 'foto' => 'assets/uploads/users/default.png',
                 'email' => 'kadek@gmail.com',
