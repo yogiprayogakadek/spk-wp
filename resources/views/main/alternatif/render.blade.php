@@ -14,6 +14,7 @@
                     <tr>
                         <th>No</th>
                         <th>Nama Alternatif</th>
+                        <th>Kelurahan</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -22,6 +23,7 @@
                     <tr>
                         <td>{{$loop->iteration}}</td>
                         <td>{{$data->nama}}</td>
+                        <td>{{$data->kelurahan}}</td>
                         <td>
                             <button class="btn btn-primary btn-edit" data-id="{{$data->id_alternatif}}">
                                 <i class="fa fa-edit"></i> Edit
@@ -54,6 +56,11 @@
                         <label for="nama">Nama Alternatif</label>
                         <input type="text" class="form-control nama" name="nama" id="nama" placeholder="masukkan nama alternatif">
                         <div class="invalid-feedback error-nama"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="kelurahan">Kelurahan</label>
+                        <input type="text" class="form-control kelurahan" name="kelurahan" id="kelurahan" placeholder="masukkan kelurahan">
+                        <div class="invalid-feedback error-kelurahan"></div>
                     </div>
                 </form>
             </div>

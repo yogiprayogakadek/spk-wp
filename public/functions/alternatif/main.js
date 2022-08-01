@@ -21,6 +21,7 @@ $(document).ready(function () {
         $('#modal .modal-body').find('form').attr('id', 'formAdd');
         $('#modal .modal-footer').find('.btn-primary').addClass('btn-save').removeClass('btn-update');
         $('#modal .modal-body').find('form').find('input[name="nama"]').val('');
+        $('#modal .modal-body').find('form').find('input[name="kelurahan"]').val('');
         $('#modal').find('#id_alternatif').remove();
     });
 
@@ -94,6 +95,7 @@ $(document).ready(function () {
             $('#modal .modal-footer').find('.btn-primary').addClass('btn-update').removeClass('btn-save');
             $('#modal .modal-body').find('form').append('<input type="hidden" id="id_alternatif" name="id_alternatif" value="' + id + '">');
             $('#modal .modal-body').find('form').find('input[name="nama"]').val(data.nama);
+            $('#modal .modal-body').find('form').find('input[name="kelurahan"]').val(data.kelurahan);
         });
     });
 

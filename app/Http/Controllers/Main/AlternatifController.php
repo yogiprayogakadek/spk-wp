@@ -37,6 +37,7 @@ class AlternatifController extends Controller
             DB::transaction(function() use ($request) {
                 $alternatif = Alternatif::create([
                     'nama' => $request->nama,
+                    'kelurahan' => $request->kelurahan,
                 ]);
                 $kriteria = Kriteria::all();
     
@@ -75,6 +76,7 @@ class AlternatifController extends Controller
             $data = Alternatif::find($request->id_alternatif);
             $data->update([
                 'nama' => $request->nama,
+                'kelurahan' => $request->kelurahan,
             ]);
             return response()->json([
                 'status' => 'success',

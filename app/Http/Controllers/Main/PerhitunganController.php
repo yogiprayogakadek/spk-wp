@@ -55,7 +55,7 @@ class PerhitunganController extends Controller
             $ranking[$key] = [
                 'nilai' => $value/array_sum($nilaiS),
                 'alternatif' => Alternatif::find($key)->nama,
-                'no' => $key - count($nilaiS),
+                'no' => $key - count($nilaiS) + 1,
             ];
         }
         

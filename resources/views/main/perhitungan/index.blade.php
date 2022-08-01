@@ -239,7 +239,7 @@
                 <table class="table table-borderless" role="grid">
                     <tbody>
                         {{-- {{$nilaiAlternatif}} --}}
-                        @foreach ($alternatif as $alt)
+                        @forelse ($alternatif as $alt)
                         <tr>
                             <td width='5%'>
                                 <i>S</i><sub>{{$loop->iteration}}</sub>
@@ -261,7 +261,13 @@
                                 </span>
                             </td>
                         </tr>
-                        @endforeach
+                        @empty
+                        <tr>
+                            <td colspan="4" class="text-center">
+                                <h4>Tidak ada data alternatif</h4>
+                            </td>
+                        </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
@@ -276,7 +282,7 @@
             <div class="card-body">
                 <table class="table table-borderless" role="grid">
                     <tbody>
-                        @foreach ($alternatif as $key => $value)
+                        @forelse ($alternatif as $key => $value)
                         <tr>
                             <td width='1%' class="align-middle">
                                 <i>V</i><sub>{{$loop->iteration}}</sub>
@@ -301,7 +307,13 @@
                                 <span>{{round($nilaiS[$value->id_alternatif]/array_sum($nilaiS), 4)}}</span>
                             </td>
                         </tr>
-                        @endforeach
+                        @empty
+                        <tr>
+                            <td colspan="6" class="text-center">
+                                <h4>Tidak ada data alternatif</h4>
+                            </td>
+                        </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
@@ -322,6 +334,7 @@
                         @endforeach
                     </thead>
                     <tbody>
+                        @if (count($ranking) > 0)  
                         <tr>
                             <td>Alternatif</td>
                             @foreach ($ranking as $key => $rank)
@@ -334,6 +347,13 @@
                             <td>{{round($ranking['nilai'], 4)}}</td>
                             @endforeach
                         </tr>
+                        @else
+                        <tr>
+                            <td colspan="6" class="text-center">
+                                <h4>Tidak ada data alternatif</h4>
+                            </td>
+                        </tr>
+                        @endif
                     </tbody>
                 </table>
             </div>

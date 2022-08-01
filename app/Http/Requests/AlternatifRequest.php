@@ -24,7 +24,8 @@ class AlternatifRequest extends FormRequest
     public function rules()
     {
         return [
-            'nama' => 'required'
+            'nama' => 'required',
+            'kelurahan' => 'required',
         ];
     }
 
@@ -39,6 +40,7 @@ class AlternatifRequest extends FormRequest
     {
         return [
             'nama' => 'Nama alternatif',
+            'kelurahan' => 'Kelurahan',
         ];
     }
 }
