@@ -24,6 +24,10 @@
                         href="{{route('dashboard.index')}}"><i class="side-menu__icon fe fe-home"></i><span
                             class="side-menu__label">Dashboard</span>
                     </a>
+                    <a class="side-menu__item has-link {{Request::is('user') ? 'active' : '' }}" data-bs-toggle="slide"
+                        href="{{route('user.index')}}"><i class="side-menu__icon fe fe-users"></i><span
+                            class="side-menu__label">Data Pengguna</span>
+                    </a>
                     <a class="side-menu__item has-link {{Request::is('kriteria') ? 'active' : '' }}" data-bs-toggle="slide"
                         href="{{route('kriteria.index')}}"><i class="side-menu__icon fe fe-package"></i><span
                             class="side-menu__label">Data Kriteria</span>

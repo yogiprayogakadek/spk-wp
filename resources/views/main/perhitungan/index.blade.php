@@ -328,13 +328,32 @@
             <div class="card-body">
                 <table class="table table-borderless" role="grid">
                     <thead>
-                        <th></th>
-                        @foreach ($ranking as $key => $rank)
+                        <th>Rank</th>
+                        <th>Nama Alternatif</th>
+                        <th>Nilai</th>
+                        {{-- @foreach ($ranking as $key => $rank)
                         <th class="bg-primary text-white">Ranking {{$key+1}}</th>
-                        @endforeach
+                        @endforeach --}}
                     </thead>
                     <tbody>
-                        @if (count($ranking) > 0)  
+                        @forelse ($ranking as $key => $rank)
+                        <tr>
+                            <td>{{$loop->iteration}}</td>
+                            <td>{!!$rank['alternatif'] . ' (V<sub>' . $rank['no'] . '</sub>)'!!}</td>
+                            <td>{{round($rank['nilai'], 4)}}</td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="3" class="text-center">
+                                <h4>Tidak ada data alternatif</h4>
+                            </td>
+                        </tr>
+                        @endforelse
+
+
+
+
+                        {{-- @if (count($ranking) > 0)  
                         <tr>
                             <td>Alternatif</td>
                             @foreach ($ranking as $key => $rank)
@@ -353,7 +372,7 @@
                                 <h4>Tidak ada data alternatif</h4>
                             </td>
                         </tr>
-                        @endif
+                        @endif --}}
                     </tbody>
                 </table>
             </div>

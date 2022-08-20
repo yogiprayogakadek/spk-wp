@@ -18,7 +18,6 @@ Route::prefix('/')->namespace('Main')->middleware('auth')->group(function(){
 
     Route::prefix('/user')->name('user.')->group(function(){
         Route::get('/', 'UserController@index')->name('index');
-        Route::get('/render', 'UserController@render')->name('render');
     });
 
     Route::prefix('/kriteria')->name('kriteria.')->group(function(){
