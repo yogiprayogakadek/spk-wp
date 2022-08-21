@@ -37,10 +37,10 @@ class NilaiController extends Controller
             // $nilai = Nilai::where('id_alternatif', $request->id_alternatif)->get();
 
             foreach($kriteria as $kriteria) {
-                $nama = strtolower(str_replace(' ', '_', $kriteria->nama));
+                $kode_kriteria = strtolower($kriteria->kode_kriteria);
                 $nilai = Nilai::where('id_alternatif', $request->id_alternatif)->where('id_kriteria', $kriteria->id_kriteria)->first();
                 $nilai->update([
-                    'nilai' => $request->$nama
+                    'nilai' => $request->$kode_kriteria
                 ]);
             }
 
@@ -64,8 +64,10 @@ class NilaiController extends Controller
         $kriteria = Kriteria::all();
         $dataKriteria = [];
         foreach($kriteria as $kriteria) {
-            $nama = strtolower(str_replace(' ', '_', $kriteria->nama));
-            $dataKriteria[] = $nama;
+            // $nama = strtolower(str_replace(' ', '_', $kriteria->nama));
+            // $dataKriteria[] = $nama;
+            $kode_kriteria = strtolower($kriteria->kode_kriteria);
+            $dataKriteria[] = $kode_kriteria;
         }
 
         return response()->json([

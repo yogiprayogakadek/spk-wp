@@ -124,7 +124,7 @@ $(document).ready(function () {
                 $('.btn-update').html('Simpan')
             },
             success: function (response) {
-                $('#formAdd').trigger('reset')
+                $('#formEdit').trigger('reset')
                 $(".invalid-feedback").html('')
                 getData();
                 $('#modal').modal('hide')

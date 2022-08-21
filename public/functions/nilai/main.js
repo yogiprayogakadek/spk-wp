@@ -43,6 +43,9 @@ $(document).ready(function () {
             $.each(data.kriteria, function (index, value) { 
                 $('#modalNilai .modal-body').find('form').find('input[name="'+value+'"]').val(data.nilai[index].nilai);
             });
+            // $.each(data.kriteria, function (index, value) { 
+            //     $('#modalNilai .modal-body').find('form').find('input[name="'+value+'"]').val(data.nilai[index].nilai);
+            // });
         });
     });
 

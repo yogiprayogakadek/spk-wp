@@ -23,6 +23,8 @@ Route::prefix('/')->namespace('Main')->middleware('auth')->group(function(){
     Route::prefix('/kriteria')->name('kriteria.')->group(function(){
         Route::get('/', 'KriteriaController@index')->name('index');
         Route::get('/render', 'KriteriaController@render')->name('render');
+        Route::get('/edit/{id}', 'KriteriaController@edit')->name('edit');
+        Route::post('/update', 'KriteriaController@update')->name('update');
     });
 
     Route::prefix('/alternatif')->name('alternatif.')->group(function(){
@@ -45,6 +47,7 @@ Route::prefix('/')->namespace('Main')->middleware('auth')->group(function(){
     Route::prefix('/perhitungan')->name('perhitungan.')->group(function(){
         Route::get('/', 'PerhitunganController@index')->name('index');
         Route::get('/render', 'PerhitunganController@render')->name('render');
+        Route::get('/print', 'PerhitunganController@print')->name('print');
     });
 });
 

@@ -5,92 +5,13 @@
 @section('sub-pwd', 'Perhitungan')
 @push('css')
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<style>
-    hr.dashed {
-        border-top: 2px dashed #999;
-    }
-
-    hr.dotted {
-        border-top: 2px dotted #999;
-    }
-
-    hr.solid {
-        border-top: 2px solid #999;
-    }
-
-
-    hr.hr-text {
-        position: relative;
-        border: none;
-        height: 1px;
-        background: #999;
-    }
-
-    hr.hr-text::before {
-        content: attr(data-content);
-        display: inline-block;
-        background: #fff;
-        font-weight: bold;
-        font-size: 0.85rem;
-        color: #999;
-        border-radius: 30rem;
-        padding: 0.2rem 2rem;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    #button {
-        display: block;
-        margin: 20px auto;
-        padding: 10px 30px;
-        background-color: #eee;
-        border: solid #ccc 1px;
-        cursor: pointer;
-    }
-
-    #overlay {
-        position: fixed;
-        top: 0;
-        z-index: 100;
-        width: 100%;
-        height: 100%;
-        display: none;
-        background: rgba(0, 0, 0, 0.6);
-    }
-
-    .cv-spinner {
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .spinner {
-        width: 40px;
-        height: 40px;
-        border: 4px #ddd solid;
-        border-top: 4px #2e93e6 solid;
-        border-radius: 50%;
-        animation: sp-anime 0.8s infinite linear;
-    }
-
-    @keyframes sp-anime {
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-
-    .is-hide {
-        display: none;
-    }
-</style>
+<link rel="stylesheet" href="{{asset('assets/css/perhitungan.css')}}">
 @endpush
 
 @section('content')
 <div class="pull-right mb-2">
     <button class="btn btn-primary" id="btn-hitung">Hitung</button>
+    <button hidden class="btn btn-success" id="btn-print"><i class="fa fa-print"></i> Print</button>
 </div>
 
 <div class="card">
@@ -382,6 +303,7 @@
 @endsection
 
 @push('script')
+<script src="{{asset('functions/print/main.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/gh/loadingio/ldLoader@v1.0.0/dist/ldld.min.js"></script>
 <script>
     $(document).ready(function () {
@@ -407,9 +329,11 @@
                 [5, 10, 15, 20, "All"]
             ],
         });
-        $(document).ajaxSend(function() {
-            $("#overlay").fadeIn(300);　
-        });
+
+        // $(document).ajaxSend(function() {
+        //     $("#overlay").fadeIn(300);　
+        // });
+
         $('#btn-hitung').click(function () {
             $.ajax({
             type: 'GET',
@@ -421,8 +345,40 @@
                     $("#overlay").fadeOut(300);
                     $('.weighted-product').prop('hidden', false);
                     $('#btn-hitung').prop('hidden', true);
+                    $('#btn-print').prop('hidden', false);
                 },500);
             });
+        });
+
+        $('#btn-print').click(function () {
+            Swal.fire({
+                title: 'Cetak data perhitungan?',
+                text: "Laporan akan dicetak",
+                icon: 'success',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, cetak!'
+            }).then((result) => {
+                if (result.value) {
+                    var mode = "iframe"; //popup
+                    var close = mode == "popup";
+                    var options = {
+                        mode: mode,
+                        popClose: close,
+                        popTitle: 'LaporanDataProduk',
+                    };
+                    $.ajax({
+                        type: "GET",
+                        url: "perhitungan/print",
+                        dataType: "json",
+                        success: function (response) {
+                            document.title= 'Laporan - ' + new Date().toJSON().slice(0,10).replace(/-/g,'/')
+                            $(response.data).find("div.printableArea").printArea(options);
+                        }
+                    });
+                }
+            })
         });
     });
 </script>
