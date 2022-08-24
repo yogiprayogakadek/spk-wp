@@ -55,8 +55,8 @@
                     <div class="form-group">
                         <label for="nama">{{$kriteria->nama}} {{$satuan[$key]}}</label>
                         <input type="text" class="form-control nilai {{strtolower($kriteria->kode_kriteria)}}" name="{{strtolower($kriteria->kode_kriteria)}}" id="{{strtolower($kriteria->kode_kriteria)}}" placeholder="masukkan nilai {{strtolower($kriteria->nama)}}">
+                        <span class="text-small text-muted">{{$kriteria->deskripsi}}</span>
                         <div class="invalid-feedback error-{{strtolower($kriteria->kode_kriteria)}}"></div>
-
 
                         {{-- <input type="text" class="form-control nilai {{strtolower(str_replace(' ','_',$kriteria->nama))}}" name="{{strtolower(str_replace(' ','_',$kriteria->nama))}}" id="{{strtolower(str_replace(' ','_',$kriteria->nama))}}" placeholder="masukkan nilai {{strtolower($kriteria->nama)}}">
                         <div class="invalid-feedback error-{{strtolower(str_replace(' ','_',$kriteria->nama))}}"></div> --}}
