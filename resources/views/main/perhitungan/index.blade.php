@@ -82,7 +82,7 @@
 
 {{-- nilai --}}
 <div class="row">
-    <div class="col-lg-6 col-xl-4 weighted-product">
+    <div class="col-lg-6 weighted-product">
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Nilai W</h3>
