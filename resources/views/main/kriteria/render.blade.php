@@ -1,7 +1,11 @@
 <div class="col-12">
+    <div class="alert alert-info">
+        <i class="fa fa-exclamation-triangle"></i>
+        Penentuan kriteria sudah dalam tahapan wawancara, sehingga kriteria yang digunakan sudah fix!
+    </div>
     <div class="card">
         <div class="card-body">
-            <table class="table table-bordered text-nowrap border-bottom dataTable no-footer" role="grid" id="tableData">
+            <table class="table table-responsive table-bordered text-nowrap border-bottom dataTable no-footer" role="grid" id="tableData">
                 <thead>
                     <tr>
                         <th>No</th>
