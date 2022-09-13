@@ -49,6 +49,19 @@ $(document).ready(function () {
         });
     });
 
+    $('body').on('keyup', '.c4', function() {
+        let nilai = $(this).val();
+        if(nilai <= 2) {
+            $('.c4').addClass('is-invalid')
+            $('.error-c4').html('Nilai harus diatas 2')
+            $('.btn-save-nilai').prop('disabled', true)
+        } else {
+            $('.c4').removeClass('is-invalid')
+            $('.error-c4').html('')
+            $('.btn-save-nilai').prop('disabled', false)
+        }
+    });
+
     $('body').on('click', '.btn-save-nilai', function (e) {
         $.ajaxSetup({
             headers: {
