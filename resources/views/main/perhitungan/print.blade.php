@@ -101,10 +101,9 @@
 
     {{-- nilai --}}
     <div class="row mt-5">
-        <div class="col-lg-6 col-xl-4 weighted-product">
+        {{-- <div class="col-lg-6 col-xl-4 weighted-product">
             <h3 class="text-center">Nilai W</h3>
             <table class="table table-bordered" role="grid">
-                {{-- <tbody> --}}
                     @foreach ($kriteria as $key => $item)
                     <tr>
                         <td width='5%' class="align-middle">
@@ -131,14 +130,13 @@
                         </td>
                     </tr>
                     @endforeach
-                {{-- </tbody> --}}
             </table>
-        </div>
-        <div class="col-lg-6 col-xl-4 weighted-product mt-5">
+        </div> --}}
+
+        {{-- <div class="col-lg-6 col-xl-4 weighted-product mt-5">
             <div class="card">
                 <h3 class="text-center">Nilai W ternormalisasi</h3>
                 <table class="table table-bordered" role="grid">
-                    {{-- <tbody> --}}
                         @foreach ($nilaiW as $nilaiW)
                         <tr>
                             <td width='5%'>
@@ -156,16 +154,14 @@
                             </td>
                         </tr>
                         @endforeach
-                    {{-- </tbody> --}}
                 </table>
             </div>
-        </div>
-        <div class="col-lg-6 col-xl-4 weighted-product mt-5">
+        </div> --}}
+
+        {{-- <div class="col-lg-6 col-xl-4 weighted-product mt-5">
             <div class="card">
                 <h3 class="text-center">Nilai S ternormalisasi dari setiap alternatif</h3>
                 <table class="table table-bordered" role="grid">
-                    {{-- <tbody> --}}
-                        {{-- {{$nilaiAlternatif}} --}}
                         @forelse ($alternatif as $alt)
                         <tr>
                             <td width='5%'>
@@ -195,16 +191,14 @@
                             </td>
                         </tr>
                         @endforelse
-                    {{-- </tbody> --}}
                 </table>
             </div>
-        </div>
+        </div> --}}
 
-        <div class="col-12 weighted-product mt-5">
+        {{-- <div class="col-12 weighted-product mt-5">
             <div class="card">
                 <h3 class="text-center">Nilai V (mencari alternatif terbaik)</h3>
                 <table class="table table-bordered" role="grid">
-                    {{-- <tbody> --}}
                         @forelse ($alternatif as $key => $value)
                         <tr>
                             <td width='1%' class="align-middle">
@@ -237,10 +231,9 @@
                             </td>
                         </tr>
                         @endforelse
-                    {{-- </tbody> --}}
                 </table>
             </div>
-        </div>
+        </div> --}}
 
         <div class="col-12 weighted-product mt-5">
             <div class="card">
