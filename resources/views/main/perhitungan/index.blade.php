@@ -260,7 +260,8 @@
                         @forelse ($ranking as $key => $rank)
                         <tr>
                             <td>{{$loop->iteration}}</td>
-                            <td>{!!$rank['alternatif'] . ' (V<sub>' . $rank['no'] . '</sub>)'!!}</td>
+                            <td>{!!$rank['alternatif']!!}</td>
+                            {{-- <td>{!!$rank['alternatif'] . ' (V<sub>' . $rank['no'] . '</sub>)'!!}</td> --}}
                             <td>{{round($rank['nilai'], 4)}}</td>
                         </tr>
                         @empty
